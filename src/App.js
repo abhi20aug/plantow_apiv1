@@ -1,21 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-class App extends Component {
-  render() {
-            return (
-                  <div className="App">
-                    <header className="App-header">
-                      <img src={logo} className="App-logo" alt="logo" />
-                      <h1 className="App-title">Welcome to Plantow</h1>
-                    </header>
-                    <p className="App-intro">
-                      To get started, edit <code>src/App.js</code> and save to reload.
-                    </p>
-                  </div>
-            );
-  }
+var Component = function(props){
+  var stylecss = {
+    color: props.color
+  };
+  return (
+    <div style={stylecss}>
+      <h1> {props.greet} </h1>
+  </div>
+  );
 }
 
-export default App;
+var Componentv = function(props){
+  var stylecss = {
+    color: props.color
+  };
+  return (
+    <div style={stylecss}>
+      <h2> {props.greet} </h2>
+  </div>
+  );
+}
+
+
+ReactDOM.render(
+  <div>
+    <Componentv greet="Hello Plantow" color="green"/>
+    <Component greet="Place to buy plants" color="blue"/>
+    <Component greet="Place to sell plants" color="grey"/>
+    <Component greet="Place to hang arounf" color="black"/>
+  </div>,
+  document.getElementById('root')
+);
